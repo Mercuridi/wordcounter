@@ -1,4 +1,9 @@
-use std::{path::Path, io::{BufReader, Read}, fs::File, time::Instant};
+use std::{
+    fs::File,
+    io::{BufReader, Read},
+    path::Path,
+    time::Instant,
+};
 
 #[derive(Debug)]
 struct SpecialFile {
@@ -44,10 +49,22 @@ fn main() {
     let duration = start.elapsed();
     all_word_counts.sort();
     println!("Total: {} words", total_word_count);
-    println!("Largest file: {} with {} words", largest_file.path, largest_file.word_count);
-    println!("Smallest file: {} with {} words", smallest_file.path, smallest_file.word_count);
-    println!("Mean file size: {} words", total_word_count / total_file_count);
-    println!("Median file size: {} words", all_word_counts[all_word_counts.len() / 2]);
+    println!(
+        "Largest file: {} with {} words",
+        largest_file.path, largest_file.word_count
+    );
+    println!(
+        "Smallest file: {} with {} words",
+        smallest_file.path, smallest_file.word_count
+    );
+    println!(
+        "Mean file size: {} words",
+        total_word_count / total_file_count
+    );
+    println!(
+        "Median file size: {} words",
+        all_word_counts[all_word_counts.len() / 2]
+    );
     println!("Time elapsed: {:?}", duration);
 }
 
